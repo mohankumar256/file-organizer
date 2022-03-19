@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 let inputArr = process.argv.slice(2);
 let fs = require("fs");
 let path = require("path");
@@ -25,8 +26,7 @@ switch (command) {
 
 function treefn(dirPath) {
 	if (dirPath == undefined) {
-		console.log("Kindly enter the path");
-		return;
+		dirPath = process.cwd();
 	} else {
 		let doesExist = fs.existsSync(dirPath);
 		if(doesExist){
@@ -57,8 +57,7 @@ function treeHelper(dirPath, indent){
 function organizefn(dirPath) {
 	let destPath;
 	if (dirPath == undefined) {
-		console.log("Kindly enter the path");
-		return;
+		dirPath = process.cwd();
 	} else {
 		let doesExist = fs.existsSync(dirPath);
 		if(doesExist){
